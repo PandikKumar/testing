@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+web.xml for a release build of the WebLogic Server Administration Console
+
+Copyright (c) 2004,2009,2010 Oracle and/or its affiliates. All rights reserved.
+-->
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+  version="2.4">
+  <display-name>EBSAuth</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <listener>
+	<listener-class>com.likeminds.ebsauth.core.AuthContextRootListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>error_page</servlet-name>
+    <jsp-file>/error.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>ssologin</servlet-name>
+    <servlet-class>com.likeminds.ebsauth.servlet.AuthServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ssologin</servlet-name>
+    <url-pattern>/ssologin</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>handler</servlet-name>
+    <servlet-class>com.likeminds.ebsauth.servlet.HandlerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>handler</servlet-name>
+    <url-pattern>/handler</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>error_page</servlet-name>
+    <url-pattern>/error_encountered</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
