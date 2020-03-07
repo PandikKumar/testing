@@ -1,1 +1,0 @@
-echo %JAVA_HOME%
